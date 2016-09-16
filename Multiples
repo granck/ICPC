@@ -1,0 +1,82 @@
+/**
+ *
+ * Multiples.java
+ * Gets the sum of all natural values between 1 - 1000
+ * that also are a multiple of 3 or 5
+ *
+ * Garrick Ranck
+ * September 16, 2016
+ *
+ *
+ * Pseudocode
+ *
+ * Map sumMap
+ *
+ * main(){
+ *     call makeMap
+ *     get(valueToCheck)
+ * }
+ *
+ * void makeMap(){
+ *     int maxValue
+ *     int currentSum
+ *     for (all values of i up to maxValue){
+ *          if( i is divisible by 3 or 5){
+ *              map value and its sum to sumMap
+ *              add value to currentSum //done since sum of values represents all values BELOW current i
+ *          }
+ *     }
+ * }
+ */
+
+
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Multiples{
+
+    static Map<Integer, Integer> sumMap = new HashMap<Integer, Integer>();
+    public static void main(String[] args){
+
+        //Scanner will accept input for highest value to find sums for
+        //based on integer values, could use long or BigInteger if problem
+        //asked to find values for larger number
+        Scanner input = new Scanner(System.in);
+        System.out.println("maxValue to check for multiples: ");
+        makeMap(input.nextInt());
+
+        //loop continues to ask for integers until user provides invalid input or negative value
+        //valid input checks map to see if key was a multiple of 3 or 5
+        //if so it returns sum of values BELOW it (according to mapped value of key)
+        for(int value = 0; value >= 0; ){
+            System.out.println("Value to find sum for (if not a multiple of 3 or 5, will return null)");
+            System.out.println("Negative values exit loop: ");
+            value = input.nextInt();
+            if(!sumMap.containsKey(value) && value >= 0){
+                System.out.println("null");
+            }
+            else if(sumMap.containsKey(value)) {
+                System.out.println(sumMap.get(value));
+            }
+        }
+
+    }
+
+    //cycles through all value between 0 and maxvalue
+    //checks if they are a multiple of 3 or 5
+    //if so it adds a (key, value) pair to sumMap
+    //where key = current i , value = sum of all values BELOW current i that are also multiples of 3 or 5
+    static void makeMap(int maxValue){
+
+        int currentSum = 0;
+        for(int i = 1; i <= maxValue; i++){
+            if(i % 3 == 0 || i % 5 == 0){
+                System.out.println("Adding " + currentSum + " to sumMap for key " + i
+                        + " representing sum of values below " + i);
+                sumMap.put(i, currentSum);
+                currentSum += i;
+            }
+        }
+    }
+}
