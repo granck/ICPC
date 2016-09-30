@@ -15,12 +15,14 @@ class Caching{
 			if(cacheSize == 0){
 				break;
 			}//end if
-
+			if(stage != 1){
+				System.out.println("");
+			}//end if
 			System.out.println("Simulation " + stage);
 
 			String access = input.next();
 			simulateAccess(cacheSize, access);
-
+			
 			stage++;
 		}//end while
 
@@ -39,7 +41,6 @@ class Caching{
 				for(;iterator.hasNext();){
 					System.out.print(iterator.next());
 				}//end for
-				System.out.println();
 			}//end if
 			else{
 
