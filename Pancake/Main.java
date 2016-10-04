@@ -68,11 +68,6 @@ class Main{
 
 		int[] temp = new int[pancakeNum];
 
-
-		for(int counter = 0; counter < pancakeNum; counter++){
-		}//end for
-
-
 		for(int counter = 0; counter <= flipPoint; counter++){
 			temp[counter] = pancakes[counter];
 		}//end for
@@ -91,11 +86,6 @@ class Main{
 			pancakes[pancakeStack] = temp[counter];
 			pancakeStack++;
 		}//end for
-
-
-		for(int counter = 0; counter < pancakeNum; counter++){
-		}//end for
-
 
 		return pancakes;
 
