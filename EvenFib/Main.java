@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 
-public class EvenFib{
+class Main{
 
     static Map<Integer, Integer> fibMap = new HashMap<Integer, Integer>();
 
