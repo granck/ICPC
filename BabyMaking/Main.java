@@ -28,6 +28,9 @@ class Main{
 
 		System.out.println("Num of boys: " + numBoys + " | Num of girls: " + numGirls);
 
+		float ratio = (float)numGirls / (float)numBoys;
+		System.out.println(ratio);
+
 
 
 
